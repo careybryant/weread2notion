@@ -214,7 +214,7 @@ def insert_to_notion(bookName, bookId, cover, sort, author,isbn,rating,categorie
         "Rating": {"number": rating},
         "Cover": {"files": [{"type": "external", "name": "Cover", "external": {"url": cover}}]},
     }
-    if(categories!=None):
+    if(categories!=None)and len(categories) > 0:
         multi_select = [{"name": x} for x in categories]
         properties["Categories"] = {"multi_select":multi_select}
     read_info = get_read_info(bookId=bookId)
